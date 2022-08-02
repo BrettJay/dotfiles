@@ -21,14 +21,25 @@ require('packer').startup(function(use)
   use 'williamboman/nvim-lsp-installer'                                           -- Automatically install language servers to stdpath
   use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }               -- Autocompletion
   use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }           -- Snippet Engine and Snippet Expansion
-  use 'folke/tokyonight.nvim'
+  use 'ayu-theme/ayu-vim'                                                         -- My preferred theme
   use 'nvim-lualine/lualine.nvim'                                                 -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim'                                       -- Add indentation guides even on blank lines
   use 'tpope/vim-sleuth'                                                          -- Detect tabstop and shiftwidth automatically
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Fuzzy Finder (files, lsp, etc)
+  use 'yuezk/vim-js'                                                              -- Recommended by vim-jsx-pretty
+  use 'maxmellon/vim-jsx-pretty'                                                  -- vim-jsx-pretty
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable "make" == 1 }
+
+  use({
+      "kylechui/nvim-surround",
+      config = function()
+          require("nvim-surround").setup({
+              -- Configuration here, or leave empty to use defaults
+          })
+      end
+  })
 
   if is_bootstrap then
     require('packer').sync()
@@ -85,7 +96,12 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme tokyonight]]
+vim.cmd [[let ayucolor="dark"]]
+vim.cmd [[colorscheme ayu]]
+
+-- Set split behaviour
+vim.o.splitbelow = true
+vim.o.splitright = true
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -153,6 +169,15 @@ require('gitsigns').setup {
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
+    file_ignore_patterns = {
+      "node_modules",
+      ".DS_Store",
+      "%.jpeg",
+      "%.png",
+      "%.gif",
+      "%.jpg",
+      "%.mp4"
+    },
     mappings = {
       i = {
         ['<C-u>'] = false,
