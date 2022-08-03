@@ -4,7 +4,7 @@ autoload -U promptinit; promptinit
 PURE_PROMPT_SYMBOL="→"
 prompt pure
 
-eval "$(fnm env)"
+eval "$(fnm env --use-on-cd)"
 
 # Set Neovim as the editor
 export VISUAL=nvim

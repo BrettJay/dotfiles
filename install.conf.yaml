@@ -2,4 +2,8 @@
 
 - link:
     ~/.zshrc:
-    ~/.config/nvim: nvim
+    ~/.config/nvim:
+        path: nvim
+        relink: true
+    ~/.base16.sh:
+    ~/.tmux.conf:
