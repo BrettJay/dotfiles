@@ -28,6 +28,7 @@ require('packer').startup(function(use)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Fuzzy Finder (files, lsp, etc)
   use 'yuezk/vim-js'                                                              -- Recommended by vim-jsx-pretty
   use 'maxmellon/vim-jsx-pretty'                                                  -- vim-jsx-pretty
+  use 'jose-elias-alvarez/null-ls.nvim'                                           -- Allows us to hook in to language servers for prettierd
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable "make" == 1 }
@@ -322,7 +323,7 @@ end
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Enable the following language servers
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'sumneko_lua' }
 
 -- Ensure the servers above are installed
 require('nvim-lsp-installer').setup {
@@ -406,6 +407,33 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+local null_ls = require('null-ls')
+
+local formatting = null_ls.builtins.formatting
+
+local sources = {
+  formatting.prettierd,
+}
+
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+null_ls.setup({
+  sources = sources,
+  on_attach = function(client, bufnr)
+        if client.supports_method("textDocument/formatting") then
+            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                group = augroup,
+                buffer = bufnr,
+                callback = function()
+                    -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+                    vim.lsp.buf.formatting_sync()
+                end,
+            })
+        end
+    end,
+})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
