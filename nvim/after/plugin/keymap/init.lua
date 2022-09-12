@@ -7,3 +7,5 @@ local nmap = Remap.nmap
 
 -- greatest remap ever
 xnoremap("<leader>p", "\"_dP")
+
+nnoremap("<leader>b", ":Lexplore<CR>")
