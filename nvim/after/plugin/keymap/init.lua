@@ -5,7 +5,8 @@ local inoremap = Remap.inoremap
 local xnoremap = Remap.xnoremap
 local nmap = Remap.nmap
 
--- greatest remap ever
+-- Stolen from theprimeagen; leader + p for paste without losing the
+-- yanked text in your pasteboard
 xnoremap("<leader>p", "\"_dP")
 
 nnoremap("<leader>b", ":Lexplore<CR>")
