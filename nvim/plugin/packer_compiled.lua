@@ -173,6 +173,11 @@ _G.packer_plugins = {
     path = "/Users/brett/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["vim-astro"] = {
+    loaded = true,
+    path = "/Users/brett/.local/share/nvim/site/pack/packer/start/vim-astro",
+    url = "https://github.com/wuelnerdotexe/vim-astro"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/Users/brett/.local/share/nvim/site/pack/packer/start/vim-fugitive",
