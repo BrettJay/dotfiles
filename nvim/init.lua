@@ -10,25 +10,27 @@ end
 
 -- stylua: ignore start
 require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'                                                    -- Package manager
-  use 'tpope/vim-fugitive'                                                        -- Git commands in nvim
-  use 'tpope/vim-rhubarb'                                                         -- Fugitive-companion to interact with github
-  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }       -- Add git related info in the signs columns and popups
-  use 'numToStr/Comment.nvim'                                                     -- "gc" to comment visual regions/lines
-  use 'nvim-treesitter/nvim-treesitter'                                           -- Highlight, edit, and navigate code
-  use 'nvim-treesitter/nvim-treesitter-textobjects'                               -- Additional textobjects for treesitter
-  use 'neovim/nvim-lspconfig'                                                     -- Collection of configurations for built-in LSP client
-  use 'williamboman/nvim-lsp-installer'                                           -- Automatically install language servers to stdpath
-  use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }               -- Autocompletion
-  use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }           -- Snippet Engine and Snippet Expansion
-  use 'ayu-theme/ayu-vim'                                                         -- My preferred theme
-  use 'nvim-lualine/lualine.nvim'                                                 -- Fancier statusline
-  use 'lukas-reineke/indent-blankline.nvim'                                       -- Add indentation guides even on blank lines
-  use 'tpope/vim-sleuth'                                                          -- Detect tabstop and shiftwidth automatically
-  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Fuzzy Finder (files, lsp, etc)
-  use 'yuezk/vim-js'                                                              -- Recommended by vim-jsx-pretty
-  use 'maxmellon/vim-jsx-pretty'                                                  -- vim-jsx-pretty
-  use 'jose-elias-alvarez/null-ls.nvim'                                           -- Allows us to hook in to language servers for prettierd
+  use 'wbthomason/packer.nvim'                                                          -- Package manager
+  use 'tpope/vim-fugitive'                                                              -- Git commands in nvim
+  use 'tpope/vim-rhubarb'                                                               -- Fugitive-companion to interact with github
+  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }             -- Add git related info in the signs columns and popups
+  use 'numToStr/Comment.nvim'                                                           -- "gc" to comment visual regions/lines
+  use 'nvim-treesitter/nvim-treesitter'                                                 -- Highlight, edit, and navigate code
+  use { 'nvim-treesitter/nvim-treesitter-textobjects', after = { 'nvim-treesitter' } }  -- Additional textobjects for treesitter
+  use 'neovim/nvim-lspconfig'                                                           -- Collection of configurations for built-in LSP client
+  use 'williamboman/mason.nvim'                                                         -- Manage external editor tooling i.e LSP servers
+  use 'williamboman/mason-lspconfig.nvim'                                               -- Automatically install language servers to stdpath
+  use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }                     -- Autocompletion
+  use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }                 -- Snippet Engine and Snippet Expansion
+  use 'ayu-theme/ayu-vim'                                                               -- My preferred theme
+  use 'nvim-lualine/lualine.nvim'                                                       -- Fancier statusline
+  use 'lukas-reineke/indent-blankline.nvim'                                             -- Add indentation guides even on blank lines
+  use 'tpope/vim-sleuth'                                                                -- Detect tabstop and shiftwidth automatically
+  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }       -- Fuzzy Finder (files, lsp, etc)
+  use 'yuezk/vim-js'                                                                    -- Recommended by vim-jsx-pretty
+  use 'maxmellon/vim-jsx-pretty'                                                        -- vim-jsx-pretty
+  use 'jose-elias-alvarez/null-ls.nvim'                                                 -- Allows us to hook in to language servers for prettierd
+  use 'wuelnerdotexe/vim-astro'
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable "make" == 1 }
@@ -323,11 +325,14 @@ end
 -- nvim-cmp supports additional completion capabilities
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+-- Setup mason so it can manage external tooling
+require('mason').setup()
+
 -- Enable the following language servers
 local servers = { 'clangd', 'rust_analyzer', 'pyright', 'sumneko_lua' }
 
 -- Ensure the servers above are installed
-require('nvim-lsp-installer').setup {
+require('mason-lspconfig').setup {
   ensure_installed = servers,
 }
 
