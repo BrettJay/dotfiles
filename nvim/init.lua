@@ -23,6 +23,7 @@ require('packer').startup(function(use)
   use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }                     -- Autocompletion
   use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }                 -- Snippet Engine and Snippet Expansion
   use 'ayu-theme/ayu-vim'                                                               -- My preferred theme
+  use 'folke/tokyonight.nvim'
   use 'nvim-lualine/lualine.nvim'                                                       -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim'                                             -- Add indentation guides even on blank lines
   use 'tpope/vim-sleuth'                                                                -- Detect tabstop and shiftwidth automatically
@@ -30,7 +31,6 @@ require('packer').startup(function(use)
   use 'yuezk/vim-js'                                                                    -- Recommended by vim-jsx-pretty
   use 'maxmellon/vim-jsx-pretty'                                                        -- vim-jsx-pretty
   use 'jose-elias-alvarez/null-ls.nvim'                                                 -- Allows us to hook in to language servers for prettierd
-  use 'wuelnerdotexe/vim-astro'
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable "make" == 1 }
@@ -99,8 +99,7 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[let ayucolor="dark"]]
-vim.cmd [[colorscheme ayu]]
+vim.cmd[[colorscheme tokyonight-night]]
 
 -- Set split behaviour
 vim.o.splitbelow = true
@@ -215,7 +214,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'lua', 'typescript', 'rust', 'go', 'python' },
+  ensure_installed = { 'lua', 'typescript', 'rust', 'go', 'python', 'html', 'css', 'javascript', 'astro', 'tsx' },
 
   highlight = { enable = true },
   indent = { enable = true },
