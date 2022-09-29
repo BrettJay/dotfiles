@@ -114,6 +114,16 @@ _G.packer_plugins = {
     path = "/Users/brett/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/Users/brett/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/Users/brett/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/Users/brett/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -123,11 +133,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/brett/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
-  },
-  ["nvim-lsp-installer"] = {
-    loaded = true,
-    path = "/Users/brett/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
-    url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -146,8 +151,10 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-treesitter-textobjects"] = {
+    load_after = {},
     loaded = true,
-    path = "/Users/brett/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
+    needs_bufread = false,
+    path = "/Users/brett/.local/share/nvim/site/pack/packer/opt/nvim-treesitter-textobjects",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
   },
   ["packer.nvim"] = {
@@ -172,6 +179,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/brett/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["vim-astro"] = {
+    loaded = true,
+    path = "/Users/brett/.local/share/nvim/site/pack/packer/start/vim-astro",
+    url = "https://github.com/wuelnerdotexe/vim-astro"
   },
   ["vim-fugitive"] = {
     loaded = true,
@@ -209,6 +221,11 @@ time([[Config for nvim-surround]], false)
 time([[Conditional loading of telescope-fzf-native.nvim]], true)
   require("packer.load")({"telescope-fzf-native.nvim"}, {}, _G.packer_plugins)
 time([[Conditional loading of telescope-fzf-native.nvim]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd nvim-treesitter ]]
+vim.cmd [[ packadd nvim-treesitter-textobjects ]]
+time([[Sequenced loading]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
