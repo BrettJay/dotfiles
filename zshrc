@@ -1,7 +1,10 @@
 # Use Pure Prompt
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
+fpath+=$HOME/.zsh/pure
+
 autoload -U promptinit; promptinit
+
 PURE_PROMPT_SYMBOL="→"
+
 prompt pure
 
 eval "$(fnm env --use-on-cd)"
