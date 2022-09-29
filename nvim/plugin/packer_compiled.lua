@@ -168,6 +168,11 @@ _G.packer_plugins = {
     path = "/Users/brett/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["tree-sitter-astro"] = {
+    loaded = true,
+    path = "/Users/brett/.local/share/nvim/site/pack/packer/start/tree-sitter-astro",
+    url = "https://github.com/virchau13/tree-sitter-astro"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/Users/brett/.local/share/nvim/site/pack/packer/start/vim-fugitive",

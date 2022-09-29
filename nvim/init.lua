@@ -29,6 +29,7 @@ require('packer').startup(function(use)
   use 'yuezk/vim-js'                                                              -- Recommended by vim-jsx-pretty
   use 'maxmellon/vim-jsx-pretty'                                                  -- vim-jsx-pretty
   use 'jose-elias-alvarez/null-ls.nvim'                                           -- Allows us to hook in to language servers for prettierd
+  use 'virchau13/tree-sitter-astro'
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable "make" == 1 }
@@ -323,7 +324,7 @@ end
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Enable the following language servers
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'sumneko_lua' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'sumneko_lua', 'astro' }
 
 -- Ensure the servers above are installed
 require('nvim-lsp-installer').setup {
