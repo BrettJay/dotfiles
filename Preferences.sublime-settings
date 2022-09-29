@@ -1,0 +1,12 @@
+{
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"color_scheme": "Packages/ayu/ayu-dark.sublime-color-scheme",
+	"theme": "ayu-dark.sublime-theme",
+	"font_face": "Fantasque Sans Mono",
+	"font_size": 14,
+	"line_padding_top": 2,
+	"line_padding_bottom": 2,
+}
