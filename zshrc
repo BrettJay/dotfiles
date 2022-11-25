@@ -14,7 +14,7 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 export PATH="$HOME/.npm-packages/bin:$PATH"
 
-eval "$(rbenv init - zsh)"
+# eval "$(rbenv init - zsh)"
 
 # More useful ls command by default
 alias ls='ls -lAFh'
@@ -24,3 +24,5 @@ function mkcd() {
     mkdir -p "$@" && cd "$_";
 }
 export GPG_TTY=$(tty)
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh

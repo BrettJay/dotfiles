@@ -9,4 +9,11 @@ local nmap = Remap.nmap
 -- yanked text in your pasteboard
 xnoremap("<leader>p", "\"_dP")
 
+-- Toggle sidebar
 nnoremap("<leader>b", ":Lexplore<CR>")
+
+-- Start a global replace
+nnoremap("<leader>r", ":%s/")
+
+-- Open current file on GitHub
+nnoremap("<leader>h", ":GBrowse<CR>")
