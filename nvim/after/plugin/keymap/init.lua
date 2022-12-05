@@ -17,3 +17,7 @@ nnoremap("<leader>r", ":%s/")
 
 -- Open current file on GitHub
 nnoremap("<leader>h", ":GBrowse<CR>")
+
+-- Move up or down half a screen and center viewport
+nnoremap("<C-d>", "<C-d>zz")
+nnoremap("<C-u>", "<C-u>zz")
