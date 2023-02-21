@@ -13,6 +13,7 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'                                                          -- Package manager
   use 'tpope/vim-fugitive'                                                              -- Git commands in nvim
   use 'tpope/vim-rhubarb'                                                               -- Fugitive-companion to interact with github
+  use 'tpope/vim-eunuch'                                                                -- Vim sugar for Unix shell commands
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }             -- Add git related info in the signs columns and popups
   use 'numToStr/Comment.nvim'                                                           -- "gc" to comment visual regions/lines
   use 'nvim-treesitter/nvim-treesitter'                                                 -- Highlight, edit, and navigate code
@@ -26,7 +27,7 @@ require('packer').startup(function(use)
   use 'yuezk/vim-js'                                                                    -- Recommended by vim-jsx-pretty
   use 'maxmellon/vim-jsx-pretty'                                                        -- vim-jsx-pretty
   use 'jose-elias-alvarez/null-ls.nvim'                                                 -- Allows us to hook in to language servers for prettierd
-
+  use 'jxnblk/vim-mdx-js'                                                               -- MDX
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable "make" == 1 }
 
@@ -64,6 +65,14 @@ require('packer').startup(function(use)
       {'L3MON4D3/LuaSnip'},
       {'rafamadriz/friendly-snippets'},
     }
+  }
+
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+    tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
 
@@ -295,7 +304,7 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
-vim.opt.signcolumn = 'yes' -- Reserve space for diagnostic icons
+vim.opt.signcolumn = 'no' -- Reserve space for diagnostic icons
 
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
