@@ -176,6 +176,11 @@ _G.packer_plugins = {
     path = "/Users/brett/.local/share/nvim/site/pack/packer/start/nvim-surround",
     url = "https://github.com/kylechui/nvim-surround"
   },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/Users/brett/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/Users/brett/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
@@ -187,6 +192,11 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/Users/brett/.local/share/nvim/site/pack/packer/opt/nvim-treesitter-textobjects",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/Users/brett/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -216,6 +226,11 @@ _G.packer_plugins = {
     path = "/Users/brett/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  ["vim-eunuch"] = {
+    loaded = true,
+    path = "/Users/brett/.local/share/nvim/site/pack/packer/start/vim-eunuch",
+    url = "https://github.com/tpope/vim-eunuch"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/Users/brett/.local/share/nvim/site/pack/packer/start/vim-fugitive",
@@ -230,6 +245,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/brett/.local/share/nvim/site/pack/packer/start/vim-jsx-pretty",
     url = "https://github.com/maxmellon/vim-jsx-pretty"
+  },
+  ["vim-mdx-js"] = {
+    loaded = true,
+    path = "/Users/brett/.local/share/nvim/site/pack/packer/start/vim-mdx-js",
+    url = "https://github.com/jxnblk/vim-mdx-js"
   },
   ["vim-rhubarb"] = {
     loaded = true,

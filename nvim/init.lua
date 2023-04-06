@@ -304,18 +304,14 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
-vim.opt.signcolumn = 'no' -- Reserve space for diagnostic icons
+vim.opt.signcolumn = 'yes' -- Reserve space for diagnostic icons
 
-local lsp = require('lsp-zero')
-lsp.preset('recommended')
-
-lsp.ensure_installed({
-  'tsserver',
-  'eslint',
-  'sumneko_lua',
+local lsp = require('lsp-zero').preset({
+  name = 'recommended',
+  set_lsp_keymaps = true,
+  manage_nvim_cmp = true,
+  suggest_lsp_servers = false,
 })
-
-lsp.nvim_workspace()
 
 lsp.setup()
 
