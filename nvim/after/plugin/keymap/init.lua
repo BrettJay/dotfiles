@@ -12,7 +12,7 @@ xnoremap("<leader>p", "\"_dP")
 -- Toggle sidebar
 nnoremap("<leader>b", ":NvimTreeToggle<CR>")
 
--- Locate current file in sidebar
+-- Find current file
 nnoremap("<leader>l", ":NvimTreeFindFile<CR>")
 
 -- Start a global replace
@@ -24,7 +24,3 @@ nnoremap("<leader>h", ":GBrowse<CR>")
 -- Move up or down half a screen and center viewport
 nnoremap("<C-d>", "<C-d>zz")
 nnoremap("<C-u>", "<C-u>zz")
-
--- Toggle prettier
-nnoremap("<leader>f", ":! yarn prettier<CR>")
-
