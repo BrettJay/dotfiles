@@ -19,6 +19,9 @@ export PATH="$HOME/.npm-packages/bin:$PATH"
 # More useful ls command by default
 alias ls='ls -lAFh'
 
+# Lazy git
+alias lg='lazygit'
+
 # Make directory and cd into it
 function mkcd() {
     mkdir -p "$@" && cd "$_";
