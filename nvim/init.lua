@@ -34,6 +34,8 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
   'tpope/vim-eunuch',
 
+  'prisma/vim-prisma',
+
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
@@ -70,6 +72,7 @@ require('lazy').setup({
 
       { 'j-hui/fidget.nvim', opts = {} },
       'folke/neodev.nvim',
+      'jose-elias-alvarez/null-ls.nvim',
     }
   },
 
@@ -180,6 +183,13 @@ require('lazy').setup({
       pcall(require('nvim-treesitter.install').update { with_sync = true })
     end,
   },
+
+
+  --[[ { -- Pretty hover
+    "Fildo7525/pretty_hover",
+    event = "LspAttach",
+    opts = {}
+  }, ]]
 }, {})
 
 -- [[ Setting options ]]
@@ -488,6 +498,32 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+local null_ls = require('null-ls')
+local formatting = null_ls.builtins.formatting
+
+local sources = {
+  formatting.prettierd,
+}
+
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+null_ls.setup({
+  sources = sources,
+  on_attach = function(client, bufnr)
+    if client.supports_method("textDocument/formatting") then
+      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+          -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+          vim.lsp.buf.format({ bufnr = bufnr })
+        end,
+      })
+    end
+  end,
+})
+
 require("brett")
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
