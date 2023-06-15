@@ -10,10 +10,7 @@ local nmap = Remap.nmap
 xnoremap("<leader>p", "\"_dP")
 
 -- Toggle sidebar
-nnoremap("<leader>b", ":NvimTreeToggle<CR>")
-
--- Find current file
-nnoremap("<leader>l", ":NvimTreeFindFile<CR>")
+nnoremap("<leader>b", ":Neotree toggle reveal <cr>")
 
 -- Start a global replace
 nnoremap("<leader>r", ":%s/")
