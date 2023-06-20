@@ -21,6 +21,9 @@ nnoremap("<leader>r", ":%s/")
 -- Open current file on GitHub
 nnoremap("<leader>h", ":GBrowse<CR>")
 
+-- Format
+nnoremap("<leader>f", ":!yarn prettier<CR>")
+
 -- Move up or down half a screen and center viewport
 nnoremap("<C-d>", "<C-d>zz")
 nnoremap("<C-u>", "<C-u>zz")
