@@ -15,6 +15,9 @@ nnoremap("<leader>b", ":Neotree toggle reveal <cr>")
 -- Start a global replace
 nnoremap("<leader>r", ":%s/")
 
+-- Prettier
+nnoremap("<leader>f", ":!yarn prettier<cr>")
+
 -- Open current file on GitHub
 nnoremap("<leader>h", ":GBrowse<CR>")
 
