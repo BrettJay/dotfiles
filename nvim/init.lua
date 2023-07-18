@@ -476,6 +476,17 @@ cmp.setup {
       luasnip.lsp_expand(args.body)
     end,
   },
+  completion = {
+    get_trigger_characters = function(trigger_characters)
+      local new_trigger_characters = {}
+      for _, char in ipairs(trigger_characters) do
+        if char ~= '>' then
+          table.insert(new_trigger_characters, char)
+        end
+      end
+      return new_trigger_characters
+    end
+  },
   mapping = cmp.mapping.preset.insert {
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
