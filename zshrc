@@ -29,3 +29,10 @@ function mkcd() {
 export GPG_TTY=$(tty)
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# bun completions
+[ -s "/Users/brett/.bun/_bun" ] && source "/Users/brett/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
