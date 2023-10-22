@@ -21,3 +21,14 @@ nnoremap("<leader>h", ":GBrowse<CR>")
 -- Move up or down half a screen and center viewport
 nnoremap("<C-d>", "<C-d>zz")
 nnoremap("<C-u>", "<C-u>zz")
+
+-- Indent and stay in visual mode
+vnoremap("<", "<gv")
+vnoremap(">", ">gv")
+
+-- Map enter to ciw in normal mode
+nnoremap("<CR>", "ciw")
+
+-- move lines ala VSCode
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
