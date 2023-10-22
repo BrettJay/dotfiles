@@ -21,3 +21,10 @@ function mkcd() {
     mkdir -p "$@" && cd "$_";
 }
 export GPG_TTY=$(tty)
+
+# bun completions
+[ -s "/Users/brett/.bun/_bun" ] && source "/Users/brett/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

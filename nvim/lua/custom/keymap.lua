@@ -24,3 +24,17 @@ nnoremap("<leader>h", ":GBrowse<CR>")
 -- Move up or down half a screen and center viewport
 nnoremap("<C-d>", "<C-d>zz")
 nnoremap("<C-u>", "<C-u>zz")
+
+-- Stay in visual mode when changing select indentation
+vnoremap("<", "<gv")
+vnoremap(">", ">gv")
+
+-- Move lines vertically in visual mode
+vnoremap("J", ":m '>+1<CR>gv=gv")
+vnoremap("K", ":m '<-2<CR>gv=gv")
+
+-- Enter in normal mode to change current word
+nnoremap("<CR>", "ciw")
+
+-- Git CoAuthors
+nnoremap("<leader>gca", "<cmd>lua require('telescope').extensions.githubcoauthors.coauthors()<CR>")
