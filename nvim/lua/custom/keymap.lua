@@ -16,7 +16,8 @@ nnoremap("<leader>b", ":Neotree toggle reveal <cr>")
 nnoremap("<leader>r", ":%s/")
 
 -- Prettier
-nnoremap("<leader>f", ":!yarn prettier<cr>")
+-- nnoremap("<leader>f", ":!yarn prettier<cr>")
+nnoremap("<leader>cf", ":%!npx prettier --stdin-filepath %<cr>")
 
 -- Open current file on GitHub
 nnoremap("<leader>h", ":GBrowse<CR>")
