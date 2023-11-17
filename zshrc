@@ -11,6 +11,7 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 export PATH="$HOME/.npm-packages/bin:$PATH"
 
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 
 # More useful ls command by default
