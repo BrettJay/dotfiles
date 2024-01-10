@@ -15,10 +15,6 @@ nnoremap("<leader>b", ":Neotree toggle reveal <cr>")
 -- Start a global replace
 nnoremap("<leader>r", ":%s/")
 
--- Prettier
--- nnoremap("<leader>f", ":!yarn prettier<cr>")
-nnoremap("<leader>cf", ":%!npx prettier --stdin-filepath %<cr>")
-
 -- Open current file on GitHub
 nnoremap("<leader>h", ":GBrowse<CR>")
 
@@ -26,16 +22,13 @@ nnoremap("<leader>h", ":GBrowse<CR>")
 nnoremap("<C-d>", "<C-d>zz")
 nnoremap("<C-u>", "<C-u>zz")
 
--- Stay in visual mode when changing select indentation
+-- Indent and stay in visual mode
 vnoremap("<", "<gv")
 vnoremap(">", ">gv")
 
--- Move lines vertically in visual mode
-vnoremap("J", ":m '>+1<CR>gv=gv")
-vnoremap("K", ":m '<-2<CR>gv=gv")
-
--- Enter in normal mode to change current word
+-- Map enter to ciw in normal mode
 nnoremap("<CR>", "ciw")
 
--- Git CoAuthors
-nnoremap("<leader>gca", "<cmd>lua require('telescope').extensions.githubcoauthors.coauthors()<CR>")
+-- move lines ala VSCode
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

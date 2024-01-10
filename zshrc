@@ -13,6 +13,7 @@ export PATH="$HOME/.npm-packages/bin:$PATH"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
+export PATH="$HOME/go/bin:$PATH"
 
 # More useful ls command by default
 alias ls='ls -lAFh'
