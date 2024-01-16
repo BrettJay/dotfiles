@@ -9,23 +9,23 @@ return {
   config = function()
     require("trouble").setup()
 
-    vim.keymap.set("n", "<leader>tt", function()
+    vim.keymap.set("n", "<leader>dt", function()
       require("trouble").toggle()
     end)
 
-    vim.keymap.set("n", "<leader>tw", function()
+    vim.keymap.set("n", "<leader>dw", function()
       require("trouble").toggle("workspace_diagnostics")
     end)
 
-    vim.keymap.set("n", "<leader>td", function()
+    vim.keymap.set("n", "<leader>dd", function()
       require("trouble").toggle("document_diagnostics")
     end)
 
-    vim.keymap.set("n", "<leader>tq", function()
+    vim.keymap.set("n", "<leader>dq", function()
       require("trouble").toggle("quickfix")
     end)
 
-    vim.keymap.set("n", "<leader>tl", function()
+    vim.keymap.set("n", "<leader>dl", function()
       require("trouble").toggle("loclist")
     end)
 
