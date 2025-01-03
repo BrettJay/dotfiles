@@ -17,6 +17,7 @@ export PATH="$HOME/go/bin:$PATH"
 
 # More useful ls command by default
 alias ls='ls -lAFh'
+alias e='nvim'
 
 # Make directory and cd into it
 function mkcd() {
@@ -30,3 +31,11 @@ export GPG_TTY=$(tty)
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# fnm
+FNM_PATH="/Users/brett/Library/Application Support/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/Users/brett/Library/Application Support/fnm:$PATH"
+  eval "`fnm env`"
+fi
+
