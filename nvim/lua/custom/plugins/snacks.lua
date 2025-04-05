@@ -5,7 +5,18 @@ return {
   ---@type snacks.Config
   opts = {
     bigfile = { enabled = true },
-    dashboard = { enabled = true },
+    dashboard = {
+      enabled = true,
+      preset = {
+        header = [[
+███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
+████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
+██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
+██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
+██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
+╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
+      },
+    },
     explorer = { enabled = true },
     indent = { enabled = true },
     input = { enabled = true },
@@ -148,7 +159,7 @@ return {
       desc = 'Git Stash',
     },
     {
-      '<leader>gd',
+      '<leader>gh',
       function()
         Snacks.picker.git_diff()
       end,
@@ -346,13 +357,6 @@ return {
         Snacks.picker.lsp_definitions()
       end,
       desc = 'Goto Definition',
-    },
-    {
-      'gD',
-      function()
-        Snacks.picker.lsp_declarations()
-      end,
-      desc = 'Goto Declaration',
     },
     {
       'gr',
