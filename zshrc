@@ -58,3 +58,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+if [ -f "${ZDOTDIR:-$HOME}/.zsh_secrets" ]; then
+  source "${ZDOTDIR:-$HOME}/.zsh_secrets"
+fi

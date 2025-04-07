@@ -2,6 +2,7 @@
 
 - link:
     ~/.zshrc:
+    ~/.zsh_secrets:
     ~/.config/nvim:
         path: nvim
         relink: true
