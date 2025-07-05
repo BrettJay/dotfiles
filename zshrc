@@ -62,3 +62,4 @@ esac
 if [ -f "${ZDOTDIR:-$HOME}/.zsh_secrets" ]; then
   source "${ZDOTDIR:-$HOME}/.zsh_secrets"
 fi
+alias claude="/Users/brett/.claude/local/claude"
