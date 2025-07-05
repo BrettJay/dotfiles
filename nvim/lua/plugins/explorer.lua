@@ -19,4 +19,14 @@ return {
       sidebar = { position = "right" },
     },
   },
+  keys = {
+    {
+      "<leader>fE",
+      function()
+        Snacks.explorer()
+      end,
+      desc = "Explorer Snacks (cwd)",
+    },
+    { "\\", "<leader>fE", desc = "Explorer Snacks (cwd)", remap = true },
+  },
 }
