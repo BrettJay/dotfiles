@@ -18,6 +18,7 @@ export PATH="$HOME/go/bin:$PATH"
 # More useful ls command by default
 alias ls='ls -lAFh'
 alias e='nvim'
+alias c='codium'
 
 # Make directory and cd into it
 function mkcd() {
@@ -63,3 +64,8 @@ if [ -f "${ZDOTDIR:-$HOME}/.zsh_secrets" ]; then
   source "${ZDOTDIR:-$HOME}/.zsh_secrets"
 fi
 alias claude="/Users/brett/.claude/local/claude"
+
+# opencode
+export PATH=/Users/brett/.opencode/bin:$PATH
+
+. "$HOME/.cargo/env"
